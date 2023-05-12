@@ -35,7 +35,7 @@
         }
         @include m.tablet {
 
-            padding-bottom: 0;
+            padding-bottom: 1rem;
             
             @include m.grid(3, v.$separation);
 

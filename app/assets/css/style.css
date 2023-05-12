@@ -800,7 +800,7 @@ body {
 }
 @media (min-width: 768px) {
   .main__grid {
-    padding-bottom: 0;
+    padding-bottom: 1rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
