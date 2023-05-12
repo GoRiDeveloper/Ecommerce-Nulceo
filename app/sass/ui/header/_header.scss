@@ -1,0 +1,147 @@
+@use "../../base/variables" as v;
+@use "../../base/mixins" as m;
+
+.header {
+
+    background-color: var(--color_primary);
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    box-shadow: 0px 0px .2rem .4rem var(--color_primary);
+    padding: v.$separation - 1 0;
+    z-index: 10;
+
+    @include m.tablet {
+
+        top: 0;
+        bottom: unset;
+        padding: .2rem 0;
+
+    }
+
+    &__grid {
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include m.tablet {
+
+            @include m.grid(3, 1rem);
+
+        }
+
+    }
+
+    &__logo {
+
+        width: 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: .5rem;
+        //transform: rotateZ(3deg);
+
+    }
+
+    &__heading {
+
+        color: var(--color_icons);
+        font-size: 1.3rem;
+        transition: color .1s ease-in;
+
+        @include m.desktop {
+
+            font-size: 1.8rem;
+
+        }
+
+        &:hover {
+
+            color: var(--black);
+
+        }
+
+    }
+
+    &__icons {
+
+        position: relative;
+        display: flex;
+        gap: .3rem;
+
+        @include m.tablet {
+
+            justify-self: flex-end;
+
+        }
+
+    }
+
+    &__notify {
+
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        top: -1.2rem;
+        left: -1.1rem;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--color_icons);
+        color: var(--white);
+        font-family: v.$secondary_font;
+        font-weight: 600;
+        text-align: center;
+        z-index: -1;
+
+        @include m.tablet {
+
+            top: 1rem;
+            left: -1.3rem;
+            
+        };
+
+        &--hidden {
+
+            display: none;
+
+        }
+
+    }
+
+    &__icon {
+
+        width: 2.9rem;
+        fill: var(--color_primary);
+        stroke: var(--color_icons);
+        stroke-width: .07rem;
+        transition: stroke .1s ease-in;
+        cursor: pointer;
+
+        @include m.desktop {
+
+            width: 3.5rem;   
+
+        }
+
+        &:hover {
+
+            stroke: var(--black);
+
+        }
+
+        &--rowDots,
+        &--verticalDots {
+            @include m.tablet {
+
+                display: none;
+
+            }
+        }
+
+    }
+
+}

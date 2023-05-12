@@ -1,0 +1,51 @@
+@use "../../base/variables" as v;
+@use "../../base/mixins" as m;
+
+.main {
+
+    background-color: var(--color_tertiary);
+
+    @include m.tablet {
+
+        margin-top: 5rem;
+
+    }
+    @include m.desktop {
+
+        margin-top: 5.7rem;
+
+    };
+
+    &__heading {
+
+        font-size: v.$font-size-md;
+        padding: v.$separation 0;
+
+    }
+
+    &__grid {
+
+        padding-bottom: 7.5rem;
+
+        @include m.grid(1, v.$separation);
+        @include m.telephone {
+
+            @include m.grid(2, v.$separation)
+
+        }
+        @include m.tablet {
+
+            padding-bottom: 0;
+            
+            @include m.grid(3, v.$separation);
+
+        }
+        @include m.desktop {
+
+            @include m.grid(4, v.$separation_md)
+
+        }
+
+    }
+
+}

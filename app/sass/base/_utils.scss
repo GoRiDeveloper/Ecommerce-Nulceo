@@ -1,0 +1,90 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+[class$="__image"] {
+
+    max-width: 21rem;
+    margin: 0 auto;
+    
+}
+
+[class$="__heading"] {
+
+    text-align: center;
+    font-weight: 600;
+
+}
+
+.theme {
+
+    --color_primary: #{v.$main_color};
+    --color_secondary: #{v.$secondary_color};
+    --color_tertiary: #{v.$tertiary_color};
+    --color_icons: #{v.$icons_color};
+    --black: #{v.$black};
+    --white: #{v.$white};
+    --gray: #{v.$gray};
+
+    &--dark {
+
+        --color_primary: #{v.$main_night_color};
+        --color_secondary: #{v.$secondary_night_color};
+        --color_tertiary: #{v.$tertiary_night_color};
+        --color_icons: #{darken(v.$main_color, 10%)};
+        --black: #{v.$white};
+        --white: #{v.$black};
+        --gray: #{darken(v.$gray, 50%)};
+
+    }
+
+}
+
+.container {
+
+    max-width: 90rem;
+    width: 90%;
+    margin: 0 auto;
+
+}
+
+.hidden {
+
+    display: none;
+
+}
+
+.show-menu {
+
+    animation-name: showMenu;
+    animation-duration: .25s;
+
+    @include m.showMenu();
+
+}
+
+.hide-menu {
+
+    animation-name: hideMenu;
+    animation-duration: .25s;
+
+    @include m.hideMenu();
+
+}
+
+.rotate-rowDots {
+
+    animation-name: rotateRowDots;
+    animation-duration: .25s;
+
+    @include m.rotateRowDots();
+
+}
+
+.rotate-columnDots {
+
+    animation-name: rotateColumnDots;
+    animation-duration: .25s;
+
+    @include m.rotateColumnDots();
+
+}

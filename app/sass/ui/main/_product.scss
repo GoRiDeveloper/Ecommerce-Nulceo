@@ -1,0 +1,121 @@
+@use "../../base/variables" as v;
+@use "../../base/mixins" as m;
+
+.product {
+
+    z-index: 9;
+
+    &:hover .product__image {
+
+        transform: translateY(-.5rem);
+
+    }
+
+    &__ilustration {
+
+        background-color: var(--white);
+        height: 10rem;
+        display: flex;
+        align-items: center;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+
+    }
+
+    &__image {
+
+        max-width: 50%;
+        max-height: 10rem;
+        border-radius: .5rem;
+        object-fit: cover;
+        transition: transform .3s ease-in-out;
+
+    }
+
+    &__content {
+
+        position: relative;
+        height: 13rem;
+        padding: v.$min_size;
+        display: flex;
+        background-color: var(--gray);
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        z-index: 9;
+
+    }
+
+    &__button {
+
+        position: absolute;
+        width: 3rem;
+        top: -1.5rem;
+        right: 1rem;
+        background-color: var(--color_primary);
+        border-radius: 50%;
+        cursor: pointer;
+
+    }
+
+    &__icon {
+
+        fill: transparent;
+        stroke: var(--color_icons);
+        transition: stroke .15s ease-in;
+
+        &:hover {
+
+            stroke: var(--black);
+
+        }
+
+    }
+
+    &__info {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font-size: .8rem;
+
+    }
+
+    &__price {
+
+        font-size: v.$min_size;
+        font-family: v.$secondary_font;
+
+    }
+
+    &__stock {
+
+        font-family: v.$secondary_font;
+        padding-bottom: v.$min_size;
+
+    }
+
+    &__heading {
+
+        display: -webkit-box;
+        display: -moz-box;
+        display: box;
+        font-size: 1.2rem;
+        font-family: v.$secondary_font;
+        text-align: left;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        -moz-box-orient: vertical;
+        box-orient: vertical;
+        line-clamp: 3;
+        overflow: hidden;
+
+    }
+
+    &__infoBtn {
+
+        @include m.button(var(--color_primary), var(--black), var(--color_icons));
+        width: fit-content;
+
+    }
+
+}

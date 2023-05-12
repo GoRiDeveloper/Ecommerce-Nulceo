@@ -1,0 +1,232 @@
+@use "variables" as v;
+
+@mixin telephone {
+    @media (min-width: v.$telephone) {
+        @content;
+    };
+};
+
+@mixin tablet {
+    @media (min-width: v.$tablet) {
+        @content;
+    };
+};
+
+@mixin desktop {
+    @media (min-width: v.$desktop) {
+        @content;
+    };
+};
+
+@mixin grid ($columns, $spacing) {
+
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    gap: $spacing;
+
+};
+
+@mixin button ($bgColor, $fontColor, $borderColor) {
+    
+    position: relative;
+    min-width: 130px;
+    height: 40px;
+    display: inline-block;
+    background-color: $bgColor;
+    color: $fontColor;
+    font-size: v.$min_size;
+    font-weight: bold;
+    border: 2px solid $borderColor;
+    border-radius: 5px;
+    padding: 5px 10px;    
+    transition: all 0.3s ease;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+    z-index: 0;
+
+    &:hover {
+
+        color: var(--white);
+
+    }
+
+    &:hover::after {
+
+        width: 100%
+
+    }
+
+    &::after {
+
+        content: "";        
+        position: absolute;
+        width: 0;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-color: var(--color_icons);
+        transition: all 0.3s ease;
+        z-index: -1;
+
+    }
+
+};
+
+@mixin modal ($bgColor) {
+
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $bgColor;
+    transition: all .7s cubic-bezier(0.5, 0, 0, 1);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 11;
+
+    &--active {
+
+        opacity: 1;
+        visibility: visible;
+        z-index: 11;
+
+    }
+
+};
+
+@mixin boxModal ($bgColor, $borderColor, $fontColor) {
+
+    position: relative;
+    max-width: 32rem;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $bgColor;
+    border: 1px solid $borderColor;
+    border-radius: .5rem;
+    color: $fontColor;
+    transform: translateY(-115%);
+    transition: transform .7s cubic-bezier(0.5, 0, 0, 1);
+
+};
+
+@mixin showMenu {
+
+    @keyframes showMenu {
+
+        0% {
+    
+            opacity: 0;
+            translate: 0 10px;
+    
+        }
+    
+        35% {
+    
+            opacity: .5;
+    
+        }
+    
+        100% {
+    
+            opacity: 1;
+            translate: 0;
+    
+        }
+    
+    };
+
+};
+
+@mixin hideMenu {
+
+    @keyframes hideMenu {
+
+        0% {
+    
+            opacity: 1;
+            translate: 0 0;
+    
+        }
+    
+        35% {
+    
+            opacity: .5;
+    
+        }
+    
+        100% {
+    
+            opacity: 0;
+            translate: 0 10px;
+    
+        }
+    
+    };
+
+};
+
+@mixin rotateRowDots {
+
+    @keyframes rotateRowDots {
+        
+        0% {
+
+            transform: rotate(0deg);
+
+        }
+
+        100% {
+
+            transform: rotate(90deg);
+
+        }
+
+    }
+
+};
+
+@mixin rotateColumnDots {
+
+    @keyframes rotateColumnDots {
+        
+        0% {
+
+            transform: rotate(0deg);
+
+        }
+
+        100% {
+
+            transform: rotate(90deg);
+
+        }
+
+    }
+
+};
+
+@mixin rotateLoader {
+
+    @keyframes loader {
+
+        0% {
+
+            transform: rotate(0deg);
+
+        };
+
+        100% {
+
+            transform: rotate(360deg);
+
+        };
+
+    };
+
+};

@@ -1,0 +1,96 @@
+@use "../../base/variables" as v;
+@use "../../base/mixins" as m;
+
+.prodInfo {
+
+    @include m.boxModal(var(--color_primary), var(--color_icons), var(--black));
+
+    &--active {
+
+        transform: translateY(0);
+
+    }
+
+    &__closeBtn {
+
+        position: absolute;
+        width: 2.3rem;
+        top: .5rem;
+        right: .5rem;
+        font-size: 1.1rem;
+        cursor: pointer;
+
+    }
+
+    &__heading {
+        
+        display: -webkit-box;
+        display: -moz-box;
+        display: box;
+        padding: .5rem 0 .2rem;
+        font-size: v.$font_size_md;
+        align-self: flex-start;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        -moz-box-orient: vertical;
+        box-orient: vertical;
+        line-clamp: 3;
+        overflow: hidden;
+
+    }
+
+    &__info {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+    }
+
+    &__image {
+
+        max-width: 10rem;
+        max-height: 10rem;
+        padding: .5rem 0;
+        object-fit: contain;
+
+    }
+
+    &__desc {
+
+        display: -webkit-box;
+        display: -moz-box;
+        display: box;
+        font-family: v.$secondary_font;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 6;
+        -moz-box-orient: vertical;
+        box-orient: vertical;
+        line-clamp: 3;
+        overflow: hidden;
+
+    }
+
+    &__div {
+
+        padding-top: .5rem;
+        font-family: v.$secondary_font;   
+
+    }
+
+    &__addBtn {
+
+        width: fit-content;
+        margin-top: .8rem;
+        align-self: center;
+
+        @include m.button(var(--color_primary), var(--black), var(--color_icons));
+        @include m.telephone {
+
+            align-self: flex-end;
+
+        }
+
+    }
+
+}
