@@ -2,15 +2,22 @@ import { DOM_APP } from "./variables.js";
 import { Products } from "./components/Products.js";
 import { showMenu, hideMenu } from "./components/Menu.js";
 import { ProductCart } from "./components/Product_Cart.js";
-import { ProductInfo, createBtnEvents, openAndCloseInfoModal } from "./components/Product_Info.js";
 import { activeLoader } from "./components/Loader.js";
 import { nightAndLightMode } from "./components/Themes.js";
+import { 
+    
+    ProductInfo, 
+    createBtnEvents, 
+    openAndCloseInfoModal 
+
+} from "./components/Product_Info.js";
 import { 
 
     openAndCloseCart, 
     configPropagation, 
     createInputEvent,
-    loadEvent 
+    loadEvent,
+    buyAllItems
 
 } from "./components/Cart.js";
 
@@ -27,7 +34,7 @@ export function generateDOMElements () {
         })
         .catch(() => 
 
-                new Error("No se pudo cargar el contenido.")
+            new Error("No se pudo cargar el contenido.")
                 
         );
 
@@ -50,7 +57,8 @@ export function generateEvents () {
         prodInfo,
         cartList,
         nightModeBtn,
-        lightModeBtn
+        lightModeBtn,
+        buyAll
 
     } = DOM_APP;
 
@@ -68,6 +76,6 @@ export function generateEvents () {
     cartList.addEventListener("DOMNodeInserted", createInputEvent);
     nightModeBtn.addEventListener("click", nightAndLightMode);
     lightModeBtn.addEventListener("click", nightAndLightMode);
-
+    buyAll.addEventListener("click", buyAllItems);
 
 };

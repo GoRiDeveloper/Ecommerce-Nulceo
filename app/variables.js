@@ -30,6 +30,7 @@ export const
         notifyQtyCart: D.querySelector(".header__notify"),
         cartTotalPrice: D.querySelector(".cart__totalPrice--price"),
         nightModeBtn: D.querySelector(".header__icon--nightMode"),
-        lightModeBtn: D.querySelector(".header__icon--lightMode")
+        lightModeBtn: D.querySelector(".header__icon--lightMode"),
+        buyAll: D.querySelector(".cart__buyButton")
 
     });

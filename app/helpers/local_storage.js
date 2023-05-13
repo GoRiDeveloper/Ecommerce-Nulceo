@@ -15,3 +15,9 @@ export function getItemLocalStorage (key) {
     return NEW_DATA;
 
 };
+
+export function deleteLocalStorage (key) {
+
+    localStorage.removeItem(key);
+
+};

@@ -2,7 +2,37 @@ import { DATABASE, CART, DOM_APP } from "../variables.js";
 import { totalItems } from "../utils/total_items.js";
 import { totalPrice } from "../utils/total_price.js";
 import { generateProdCart } from "../utils/generate_product_cart.js";
-import { saveLocalStorage, getItemLocalStorage } from "../helpers/local_storage.js";
+import { 
+    
+    saveLocalStorage, 
+    getItemLocalStorage, 
+    deleteLocalStorage 
+
+} from "../helpers/local_storage.js";
+
+function buyAllItems () {
+
+    const 
+    
+    { cartTotalPrice } = DOM_APP,
+    DATA = {
+
+        cart: [ ...CART ],
+        total: cartTotalPrice.innerText
+
+    };
+
+    saveLocalStorage("order", DATA);
+    alert("Compra Realizada.");
+
+    console.log(getItemLocalStorage("order"));
+    CART.length = 0;
+
+    deleteLocalStorage("cart");
+
+    window.location.reload();
+
+};
 
 function printCart (cart) {
 
@@ -144,6 +174,7 @@ export {
     loadEvent,
     createInputEvent,
     openAndCloseCart,
-    configPropagation
+    configPropagation,
+    buyAllItems
 
 };
